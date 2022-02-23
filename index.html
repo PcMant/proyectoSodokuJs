@@ -22,7 +22,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-dark navbar-dark  mb-2">
             <div class="container">
-                <a class="navbar-brand" href="#">SodokuPcMant</a>
+                <a class="navbar-brand" href="https://www.pcmant.com/">SodokuPcMant</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -31,17 +31,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Comenzar partida nueva</a>
+                            <a class="nav-link" aria-current="page" data-bs-toggle="modal" data-bs-target="#dificultadModal" data-bs-whatever="@mdo" href="#">Comenzar partida nueva</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Invitado
+                                <span id="loginUser">Invitado</span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo" href="#">Iniciar sesión</a></li>
+                                <li><a id="login" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo" href="#">Iniciar sesión</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-whatever="@mdo" href="#">Registrarse</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -59,7 +59,7 @@
 
         <h1 class="text-center col-12 py-3">Sodoku</h1>
         <div class="mb-2 d-flex align-items-center justify-content-around">
-            <span>Record: <span>00:00:00</span></span> <span>Tiempo en partida actual: <span>00:00:00</span></span> <button class="btn btn-warning">Comprobar</button>
+          <span>Dificultad: <span>Fácil</span></span> <span>Record: <span>00:00:00</span></span> <span>Tiempo en partida actual: <span>00:00:00</span></span> <button class="btn btn-warning">Comprobar</button>
         </div>
         <!-- Tabla que contiene el sodoku-->
         <div class="col-12 d-flex justify-content-center mt-5">
@@ -185,8 +185,8 @@
             <div class="modal-body">
               <form>
                 <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label">Usuario:</label>
-                  <input type="text" class="form-control" id="recipient-name">
+                  <label for="login-user" class="col-form-label">Usuario:</label>
+                  <input type="text" class="form-control" id="login-user">
                 </div>
                 <div class="mb-3">
                     <label for="login-pass" class="col-form-label">Contraseña:</label>
@@ -196,7 +196,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary">Iniciar sesión</button>
+              <button id="btn-login" type="button" class="btn btn-primary" data-bs-dismiss="modal">Iniciar sesión</button>
             </div>
           </div>
         </div>
@@ -233,9 +233,40 @@
         </div>
       </div>
 
+      <div class="modal fade" id="dificultadModal" tabindex="-1" aria-labelledby="dificultadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Partida nueva</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="register-user" class="col-form-label">Dificultad:</label>
+                  <select class="form-select form-control" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Comenzar partida</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/login.js"></script>
 </body>
 </html>

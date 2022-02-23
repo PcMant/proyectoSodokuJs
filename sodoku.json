@@ -4,12 +4,13 @@
 		"autor": "Juan Molina",
 		"version": 1.0
 	},
-	"usuarios": {
-		"juan": {
+	"usuarios": [
+		{
+			"user": "Juan",
 			"pass": "pass",
 			"mejorTiempo": "0"
 		}
-	},
+	],
 	"dificultad": {
 		"facil": 33,
 		"normal": 32,
