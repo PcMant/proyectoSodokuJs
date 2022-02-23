@@ -1,7 +1,19 @@
+/*ESTILOS GENERALES*/
 body {
     background: #dddddd;
 }
 
 main {
     min-height: 85vh;
+}
+
+/* MAIN */
+
+/*estilo de la tabla que contiene el sodoku*/
+#table .b-end{
+    border-right: 3px solid black !important;
+}
+
+#table .b-botton{
+    border-bottom: 3px solid black !important;
 }

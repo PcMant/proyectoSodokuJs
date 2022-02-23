@@ -13,7 +13,7 @@
     <!--Hoja de estilos CSS-->
     <link type="text/css" rel="stylesheet" href="css/styles.css" />
 
-    <title>Sodoku</title>
+    <title>Sodoku PcMant</title>
 
 </head>
 
@@ -21,8 +21,8 @@
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-dark navbar-dark  mb-2">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Sodoku</a>
+            <div class="container">
+                <a class="navbar-brand" href="#">SodokuPcMant</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -31,33 +31,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" aria-current="page" href="#">Comenzar partida nueva</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
+                                Invitado
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo" href="#">Iniciar sesión</a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-whatever="@mdo" href="#">Registrarse</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>
@@ -65,17 +57,185 @@
 
     <main class="container bg-light mb-2">
 
+        <h1 class="text-center col-12 py-3">Sodoku</h1>
+        <div class="mb-2 d-flex align-items-center justify-content-around">
+            <span>Record: <span>00:00:00</span></span> <span>Tiempo en partida actual: <span>00:00:00</span></span> <button class="btn btn-warning">Comprobar</button>
+        </div>
+        <!-- Tabla que contiene el sodoku-->
+        <div class="col-12 d-flex justify-content-center mt-5">
+            <div class="col-12 col-md-9 col-lg-5">
+                <table id="table" class="table table-bordered border-dark col-9 table-responsive" style="text-align: center;">
+                      <tr>
+                        <td id="1">1</td>
+                        <td id="2">2</td>
+                        <td id="3" class="b-end">3</td>
+                        <td id="4">4</td>
+                        <td id="5">5</td>
+                        <td id="6" class="b-end">6</td>
+                        <td id="7">7</td>
+                        <td id="8">8</td>
+                        <td id="9">9</td>
+                      </tr>
+                      <tr>
+                        <td id="10">10</td>
+                        <td id="11">11</td>
+                        <td id="12" class="b-end">12</td>
+                        <td id="13">13</td>
+                        <td id="14">14</td>
+                        <td id="15" class="b-end">15</td>
+                        <td id="16">16</td>
+                        <td id="17">17</td>
+                        <td id="18">18</td>
+                      </tr>
+                      <tr class="b-botton">
+                        <td id="19">19</td>
+                        <td id="20">20</td>
+                        <td id="21" class="b-end">21</td>
+                        <td id="22">22</td>
+                        <td id="23">23</td>
+                        <td id="24" class="b-end">24</td>
+                        <td id="25">25</td>
+                        <td id="26">26</td>
+                        <td id="27">27</td>
+                      </tr>
+                      <tr>
+                        <td id="28">28</td>
+                        <td id="29">29</td>
+                        <td id="30" class="b-end">30</td>
+                        <td id="31">31</td>
+                        <td id="32">32</td>
+                        <td id="33" class="b-end">33</td>
+                        <td id="34">34</td>
+                        <td id="35">35</td>
+                        <td id="36">36</td>
+                      </tr>
+                      <tr>
+                        <td id="37">37</td>
+                        <td id="38">38</td>
+                        <td id="39" class="b-end">39</td>
+                        <td id="40">40</td>
+                        <td id="41">41</td>
+                        <td id="42" class="b-end">42</td>
+                        <td id="43">43</td>
+                        <td id="44">44</td>
+                        <td id="45">45</td>
+                      </tr>
+                      <tr class="b-botton">
+                        <td id="46">46</td>
+                        <td id="47">47</td>
+                        <td id="48" class="b-end">48</td>
+                        <td id="49">49</td>
+                        <td id="50">50</td>
+                        <td class="b-end">51</td>
+                        <td>52</td>
+                        <td>53</td>
+                        <td>54</td>
+                      </tr>
+                      <tr>
+                        <td>55</td>
+                        <td>56</td>
+                        <td class="b-end">57</td>
+                        <td>58</td>
+                        <td>59</td>
+                        <td class="b-end">60</td>
+                        <td>61</td>
+                        <td>62</td>
+                        <td>63</td>
+                      </tr>
+                      <tr>
+                        <td>64</td>
+                        <td>65</td>
+                        <td class="b-end">66</td>
+                        <td>67</td>
+                        <td>68</td>
+                        <td class="b-end">69</td>
+                        <td>70</td>
+                        <td>71</td>
+                        <td>72</td>
+                      </tr>
+                      <tr>
+                        <td>73</td>
+                        <td>74</td>
+                        <td class="b-end">75</td>
+                        <td>76</td>
+                        <td>77</td>
+                        <td class="b-end">78</td>
+                        <td>79</td>
+                        <td>80</td>
+                        <td>81</td>
+                      </tr>
+                  </table>
+            </div>
+        </div>
+        
     </main>
 
     <footer class="container bg-light py-3">
         &copy; Created by <a href="https://www.pcmant.com/">Juan Molina - PcMant</a>
     </footer>
 
+    <!-- Modals -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="logineModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Inicio de sesión</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Usuario:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="mb-3">
+                    <label for="login-pass" class="col-form-label">Contraseña:</label>
+                    <input type="password" class="form-control" id="login-pass">
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Iniciar sesión</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Registro de usuario</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="register-user" class="col-form-label">Usuario:</label>
+                  <input type="text" class="form-control" id="register-user">
+                </div>
+                <div class="mb-3">
+                    <label for="register-pass" class="col-form-label">Contraseña:</label>
+                    <input type="password" class="form-control" id="register-pass">
+                  </div>
+                  <div class="mb-3">
+                    <label for="register-pass1" class="col-form-label">Repita la contraseña:</label>
+                    <input type="password" class="form-control" id="register-pass1">
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Registrarse</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 </body>
-
 </html>
