@@ -77,7 +77,6 @@ btnLogin.addEventListener("click", function () {
         return elemento.user == user && elemento.pass == pass;
       });
 
-      console.log(datos.usuarios);
       if (ind >= 0) {
         console.log("Login sucess");
 

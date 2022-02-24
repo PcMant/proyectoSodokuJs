@@ -1,11 +1,13 @@
 // Para nada más cargar el script
 localStorage.setItem('seleccionado',0);
-localStorage.setItem('dificultad','');
+localStorage.setItem('dificultad',JSON.stringify({name: 'Fácil', nMostrados: 33}));
+localStorage.setItem('dificultad',JSON.stringify([]));
 
 // Variables globales
 var table = document.querySelector('#table');
 var celdas = document.querySelectorAll('#table td');
-var sodokus = [];
+var sodoku = [];
+var iCeldas = [];
 
 // Funciones globales
 /* funciion que devuelve una celda seleccionada*/
@@ -13,23 +15,34 @@ function getSeleccionado(){
     return localStorage.getItem('seleccionado') != null ? localStorage.getItem('seleccionado') : 0;
 }
 
+/* funcion para barajear un array */
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+  }
+
 /* funcion que limpia los estilos de fallo */
 const limpiadoFallos = i => celdas[i].classList.remove('td-fallo');
 
 /*función que limpis los estilos de acierto */
-const limpiadoFallos = i => celdas[i].classList.remove('td-acierto');
+const limpiadoAciertos = i => celdas[i].classList.remove('td-acierto');
+
+//limpiadoFallos(); limpiadoAciertos();
 
 // Obtener todos los dodokus del json
 fetch('sodoku.json')
     .then(data => data.json())
     .then(s => {
         sodokus = s.sodokus;
+        sodoku = sodokus[Math.floor(Math.random() * sodokus.length)];
+        localStorage.setItem('sodoku',JSON.stringify(sodoku[0]));
 });
 
 // Sobrescribo todas las celdas a vacio
 celdas.forEach(function(value, index, arrayCeldas){
     if(typeof index === 'number'){
         celdas[index].innerHTML = '⠀⠀';
+        limpiadoFallos(index); limpiadoAciertos(index);
+        iCeldas.push(index);
 
         // Evento al seleccionar celda
         celdas[index].addEventListener('click', function(){
@@ -40,9 +53,17 @@ celdas.forEach(function(value, index, arrayCeldas){
             celdas[index].classList.add('td-seleccionado');
             localStorage.setItem('seleccionado',index);
         });
-
     }
 });
+
+/* hago aleatorio iCeldas ya que me servirá como index para poner de manera
+aleatoria las celdas que va a mostrar números desde el principio*/
+shuffle(iCeldas);
+sodoku = JSON.parse(localStorage.getItem('sodoku'));
+
+for(i=0; i<= 30;i++){
+    celdas[iCeldas[i]].innerHTML = sodoku[iCeldas[i]];
+}
 
 //Eventos de pulsado de teclado fisico, números a una celda especifica o borrado de esta
 window.addEventListener('keypress', function(event){
