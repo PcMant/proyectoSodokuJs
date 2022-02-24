@@ -1,6 +1,7 @@
 // Variables globales
 var table = document.querySelector('#table');
 var celda = document.querySelectorAll('#table td');
+var sodokus = [];
 
 // Sobrescribo todas las celdas a vacio
 celda.forEach(function(value, index){
@@ -14,10 +15,7 @@ celda.forEach(function(value, index){
 fetch('sodoku.json')
     .then(data => data.json())
     .then(s => {
-        var sodokus = s.sodokus;
+        sodokus = s.sodokus;
+});
 
-        // Obtención de un sodoku aleatorio
-        var sodoku = sodokus[Math.random()*sodokus.length];
-
-        console.log(sodoku);
-    });
+console.log(sodokus);
