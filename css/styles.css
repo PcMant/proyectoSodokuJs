@@ -10,6 +10,19 @@ main {
 /* MAIN */
 
 /*estilo de la tabla que contiene el sodoku*/
+#table td{
+    cursor: pointer;
+    transition: background 300ms linear;
+    -webkit-transition: background 300ms linear;
+    -moz-transition: background 300ms linear;
+    -ms-transition: background 300ms linear;
+    -o-transition: background 300ms linear;
+}
+
+#table td:hover{
+    background: lightgray;
+}
+
 #table .b-end{
     border-right: 3px solid black !important;
 }
