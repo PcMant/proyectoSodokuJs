@@ -8,11 +8,16 @@ var celdas = document.querySelectorAll('#table td');
 var sodokus = [];
 
 // Funciones globales
+/* funciion que devuelve una celda seleccionada*/
 function getSeleccionado(){
     return localStorage.getItem('seleccionado') != null ? localStorage.getItem('seleccionado') : 0;
 }
 
-const limpiadoFallos = i => {celdas[i].classList.remove('td-fallo');}
+/* funcion que limpia los estilos de fallo */
+const limpiadoFallos = i => celdas[i].classList.remove('td-fallo');
+
+/*función que limpis los estilos de acierto */
+const limpiadoFallos = i => celdas[i].classList.remove('td-acierto');
 
 // Obtener todos los dodokus del json
 fetch('sodoku.json')
