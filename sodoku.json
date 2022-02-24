@@ -26,11 +26,20 @@
 			"mejorTiempo": 0
 		}
 	],
-	"dificultad": {
-		"facil": 33,
-		"normal": 32,
-		"dificil": 33
-	},
+	"dificultad": [
+		{
+			"name": "Fácil",
+			"nMostrados": 33
+		},
+		{
+			"name": "Normal",
+			"nMostrados": 32
+		},
+		{
+			"name": "Dificil",
+			"nMostrados": 30
+		}
+	],
 	"sodokus": [
 		[
 			[1, 9, 4, 8, 6, 5, 2, 3, 7,

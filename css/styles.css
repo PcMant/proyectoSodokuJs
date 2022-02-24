@@ -11,7 +11,9 @@ main {
 
 /*estilo de la tabla que contiene el sodoku*/
 #table td{
+    max-width: 100%;
     cursor: pointer;
+    font-weight: bold;
     transition: background 300ms linear;
     -webkit-transition: background 300ms linear;
     -moz-transition: background 300ms linear;
@@ -19,8 +21,17 @@ main {
     -o-transition: background 300ms linear;
 }
 
-#table td:hover{
+#table td:hover,
+#table .td-seleccionado{
     background: lightgray;
+}
+
+#table .td-acierto{
+    color: green;
+}
+
+#table .td-fallo{
+    color: red;
 }
 
 #table .b-end{
