@@ -4,6 +4,8 @@ localStorage.setItem('dificultad',JSON.stringify({name: 'Fácil', nMostrados: 33
 localStorage.setItem('dificultad',JSON.stringify([]));
 
 // Variables globales
+var btnNuevaPartida = document.querySelector('#btn-nueva-partida');
+var btnComprobar = document.querySelector('#btn-comprobar');
 var table = document.querySelector('#table');
 var celdas = document.querySelectorAll('#table td');
 var sodoku = [];
@@ -90,4 +92,16 @@ window.addEventListener('keydown', event => {
         limpiadoFallos(getSeleccionado());
         celdas[getSeleccionado()].innerHTML = '⠀⠀';
     }
+});
+
+//Al hacer click en el boton comprobar
+btnComprobar.addEventListener('click', function(){
+
+    celdas = document.querySelectorAll('#table td');
+
+    celdas.forEach(function(index, value){
+        if(typeof index === 'number'){
+            console.log(celdas[index].innerHTML);
+        }
+    });
 });
