@@ -49,7 +49,6 @@ celdas.forEach(function(value, index, arrayCeldas){
         // Evento al seleccionar celda
         celdas[index].addEventListener('click', function(){
             arrayCeldas.forEach(function(v, i,a){
-                celdas[i].classList.remove('td-fallo');
                 celdas[i].classList.remove('td-seleccionado');
             });
             celdas[index].classList.add('td-seleccionado');
@@ -98,10 +97,15 @@ window.addEventListener('keydown', event => {
 btnComprobar.addEventListener('click', function(){
 
     celdas = document.querySelectorAll('#table td');
-
-    celdas.forEach(function(index, value){
+    sodoku = JSON.parse(localStorage.getItem('sodoku'));
+    
+    celdas.forEach(function(value, index, arrayCeldas){
         if(typeof index === 'number'){
-            console.log(celdas[index].innerHTML);
+            if(celdas[index].innerHTML == sodoku[index]){
+                celdas[index].classList.add('td-acierto');
+            }else{
+                celdas[index].classList.add('td-fallo');
+            }
         }
     });
 });
