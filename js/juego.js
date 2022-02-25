@@ -125,7 +125,6 @@ fetch("sodoku.json")
             ? JSON.parse(localStorage.getItem("login"))
             : { user: "Invitado", pass: "", mejorTiempo: -3600000 };
         clearInterval(tiempo);
-        console.log(tt.mejorTiempo);
 
         if (tt.mejorTiempo > ms || tt.mejorTiempo <= -3600000) {
           localStorage.setItem(
