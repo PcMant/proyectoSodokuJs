@@ -186,6 +186,6 @@ window.addEventListener("keypress", function (event) {
 window.addEventListener("keydown", (event) => {
   if (event.code == "Backspace" || event.code == "Delete") {
     limpiadoFallos(getSeleccionado());
-    celdas[getSeleccionado()].innerHTML = "⠀⠀";
+    celdas[getSeleccionado()].innerHTML = "⠀";
   }
 });
