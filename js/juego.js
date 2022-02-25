@@ -128,7 +128,6 @@ fetch("sodoku.json")
         console.log(tt.mejorTiempo);
 
         if (tt.mejorTiempo > ms || tt.mejorTiempo <= -3600000) {
-          alert("hola");
           localStorage.setItem(
             "login",
             JSON.stringify({ user: tt.user, pass: tt.pass, mejorTiempo: ms })
