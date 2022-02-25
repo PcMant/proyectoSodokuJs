@@ -86,21 +86,11 @@ fetch("sodoku.json")
     var ms = 0;
     var tiempo = window.setInterval(() => {
       t.setTime(t.getTime() + 1000);
-      ms =
-        t.getTime() < 3600000
-          ? -3600000 + t.getTime() + 1000
-          : t.getTime() + 1000;
-      let h =
-        t.getHours() < 10 ? "0" + t.getHours() : t.getHours();
-      let m =
-        t.getMinutes() < 10
-          ? "0" + t.getMinutes()
-          : t.getMinutes();
-      let s =
-        t.getSeconds() < 10
-          ? "0" + t.getSeconds()
-          : t.getSeconds();
-        time.innerHTML = `${h}:${m}:${s}`;
+      ms = t.getTime();
+      let h = t.getHours() < 10 ? "0" + t.getHours() : t.getHours();
+      let m = t.getMinutes() < 10 ? "0" + t.getMinutes() : t.getMinutes();
+      let s = t.getSeconds() < 10 ? "0" + t.getSeconds() : t.getSeconds();
+      time.innerHTML = `${h}:${m}:${s}`;
     }, 1000);
 
     //Al hacer click en el boton comprobar
@@ -124,20 +114,26 @@ fetch("sodoku.json")
 
       if (bolStatus) {
         /*Ventana modal, terminar partida, parar conometro, almacenar tiempo en localStorage*/
-        
+
         /*ventana modal de finalización */
         var winModal = new bootstrap.Modal(document.getElementById("winModal"));
         winModal.show();
 
         /*la parte de lo del tiempo*/
-        let tt = JSON.parse(localStorage.getItem("login"));
+        let tt =
+          JSON.parse(localStorage.getItem("login")) != null
+            ? JSON.parse(localStorage.getItem("login"))
+            : { user: "Invitado", pass: "", mejorTiempo: -3600000 };
         clearInterval(tiempo);
-        ms *= -1;
-        console.log(ms);
-        
-        if(tt.mejorTiempo > ms || tt.mejorTiempo == 0) {
-            localStorage.setItem('login', JSON.stringify({"user":tt.user,"pass":tt.pass,"mejorTiempo":ms}));
-            document.querySelector('#userRecord').innerHTML = time.innerHTML;
+        console.log(tt.mejorTiempo);
+
+        if (tt.mejorTiempo > ms || tt.mejorTiempo <= -3600000) {
+          alert("hola");
+          localStorage.setItem(
+            "login",
+            JSON.stringify({ user: tt.user, pass: tt.pass, mejorTiempo: ms })
+          );
+          document.querySelector("#userRecord").innerHTML = time.innerHTML;
         }
       }
     });
