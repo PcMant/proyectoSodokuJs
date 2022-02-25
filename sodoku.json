@@ -8,22 +8,22 @@
 		{
 			"user": "Juan",
 			"pass": "pass",
-			"mejorTiempo": 0
+			"mejorTiempo": 500000
 		},
 		{
 			"user": "Test0",
 			"pass": "pass",
-			"mejorTiempo": 0
+			"mejorTiempo": -3600000
 		},
 		{
 			"user": "Test1",
 			"pass": "123",
-			"mejorTiempo": 0
+			"mejorTiempo": -3600000
 		},
 		{
 			"user": "Test2",
 			"pass": "321",
-			"mejorTiempo": 0
+			"mejorTiempo": -3600000
 		}
 	],
 	"dificultad": [

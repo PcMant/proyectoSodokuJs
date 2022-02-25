@@ -1,7 +1,7 @@
 // Variables globales
-var btnLogin = document.querySelector("#btn-login");
-var loginUser = document.querySelector("#login-user");
-var loginPass = document.querySelector("#login-pass");
+var btnLogin = document.querySelector("#btn-register");
+var loginUser = document.querySelector("#register-user");
+var loginPass = document.querySelector("#register-pass");
 var userLogin = document.querySelector("#loginUser");
 var userRecord = document.querySelector("#userRecord");
 var logout = document.querySelector("#logout");
@@ -60,8 +60,8 @@ getUsuarios()
 // Login
 btnLogin.addEventListener("click", function () {
   userLogin = document.querySelector("#loginUser");
-  loginUser = document.querySelector("#login-user");
-  loginPass = document.querySelector("#login-pass");
+  loginUser = document.querySelector("#register-user");
+  loginPass = document.querySelector("#register-pass");
   userRecord = document.querySelector("#userRecord");
   error = document.querySelector("#error");
   user = loginUser.value.trim();
@@ -103,12 +103,12 @@ btnLogin.addEventListener("click", function () {
         );
         error.innerHTML = "";
       } else {
-        error.innerHTML = `
+        /*error.innerHTML = `
             <div class="alert alert-danger alert-dismissible fade show mx-5" role="alert">
                 <strong>Error!</strong> Las credenciales son incorrectas.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-          `;
+          `;*/
       }
     });
 
@@ -120,7 +120,7 @@ btnLogin.addEventListener("click", function () {
 /*Un logaut El cierra de sesión, 
 simplemente seria un evento que se carga el localStorage login*/
 logout.addEventListener("click", function () {
-  loginUser = document.querySelector("#login-user");
+  loginUser = document.querySelector("#register-user");
   userRecord = document.querySelector("#userRecord");
 
   localStorage.removeItem("login");
