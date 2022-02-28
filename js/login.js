@@ -55,7 +55,10 @@ getUsuarios()
         userRecord.innerHTML = `${h}:${m}:${s}`;
       }
     }
-  });
+  })
+  .catch(error => {
+		console.log(error);
+	});
 
 // Login
 btnLogin.addEventListener("click", function () {

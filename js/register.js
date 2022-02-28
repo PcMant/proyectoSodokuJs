@@ -103,13 +103,16 @@ btnLogin.addEventListener("click", function () {
         );
         error.innerHTML = "";
       } else {
-        /*error.innerHTML = `
-            <div class="alert alert-danger alert-dismissible fade show mx-5" role="alert">
-                <strong>Error!</strong> Las credenciales son incorrectas.
+        error.innerHTML = `
+            <div class="alert alert-warning alert-dismissible fade show mx-5" role="alert">
+                <strong>Alerta!</strong> Los registros están cerrados.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-          `;*/
+          `;
       }
+    })
+    .catch(error => {
+      console.log(error);
     });
 
   // una vez que deja de se de utilizad el contenido del formulario se vacia

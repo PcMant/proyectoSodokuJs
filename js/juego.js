@@ -110,6 +110,9 @@ fetch("sodoku.json")
             bbolStatus = false;
           }
         }
+      })
+      .catch(error => {
+        console.log(error);
       });
 
       if (bolStatus) {
