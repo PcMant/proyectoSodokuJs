@@ -16,6 +16,8 @@ Juego Sudoku hecho en JavaScript.
 - Tiene cronómetro y es capaz de guardar el mejor tiempo por usuario aun siendo Invitado debido a que se almacena en localStorage.
 - El motivo por el cual se emplea tanto el localStorage es debido a que directamente desde el JavaScript del lado cliente no es posible modificar dicho fichero.
 
+Demo: [https://sudoku-js.vercel.app/](https://sudoku-js.vercel.app/)
+
 ## Instrucciones de juego
 
 ### Objetivo
